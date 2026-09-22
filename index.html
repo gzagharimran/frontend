@@ -1,96 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="قالب صفحة هبوط عربية فاخرة لعيادات الأسنان في الخليج، مع خدمات علاجية وتجميلية ونموذج حجز موعد." />
-    <title>{{atelier noor}} | عيادة أسنان فاخرة في {{khalij}}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة أتلييه نور لأسنان الفاخرة | مراكش</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        color-scheme: light;
-        background: #f7f5f0;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      * { scroll-behavior: smooth; }
-      body { margin: 0; font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Tajawal", "Segoe UI", system-ui, sans-serif; }
-      ::selection { background: #0f766e; color: #fff; }
-      button, input, select, textarea { font: inherit; }
-
-      .service-card, .process-card, .feature-card, .review-card, .faq-item {
-        border: 1px solid rgba(226,232,240,0.9);
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 24px 70px rgba(15,23,42,0.06);
-        backdrop-filter: blur(18px);
-      }
-      .service-card {
-        display: flex; min-height: 270px; flex-direction: column;
-        border-radius: 2rem; padding: 1.5rem;
-        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-      }
-      .service-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(15,118,110,0.24);
-        box-shadow: 0 28px 90px rgba(15,118,110,0.14);
-      }
-      .service-icon {
-        display: grid; height: 3.5rem; width: 3.5rem;
-        place-items: center; border-radius: 1.25rem;
-        background: linear-gradient(135deg, #ecfdf5, #ccfbf1); color: #0f766e;
-      }
-      .service-icon svg { height: 1.65rem; width: 1.65rem; }
-      .service-card h3, .process-card h3, .feature-card h3 { margin-top: 1.25rem; font-size: 1.15rem; font-weight: 900; color: #020617; }
-      .service-card p, .process-card p, .feature-card p { margin-top: 0.75rem; color: #475569; line-height: 1.9; }
-
-      .why-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 2rem; background: rgba(255,255,255,0.06); padding: 1.5rem; }
-      .why-card span { display: inline-flex; border-radius: 999px; background: rgba(254,240,138,0.14); padding: 0.35rem 0.75rem; color: #fde68a; font-size: 0.85rem; font-weight: 900; }
-      .why-card h3 { margin-top: 1.25rem; font-size: 1.25rem; font-weight: 900; }
-      .why-card p { margin-top: 0.75rem; color: #cbd5e1; line-height: 1.9; }
-
-      .process-card, .feature-card { border-radius: 2rem; padding: 1.5rem; }
-      .process-card span { display: grid; height: 3rem; width: 3rem; place-items: center; border-radius: 999px; background: #0f766e; color: #fff; font-weight: 900; }
-
-      .review-card { border-radius: 2rem; padding: 1.5rem; }
-      .review-card blockquote { margin-top: 1rem; color: #334155; font-size: 1.05rem; line-height: 2; }
-      .review-card figcaption { margin-top: 1.25rem; color: #0f766e; font-weight: 900; }
-      .stars { color: #d97706; letter-spacing: 0.08em; }
-
-      .form-field { display: grid; gap: 0.6rem; }
-      .form-field span { font-size: 0.92rem; font-weight: 900; color: #0f172a; }
-      .form-field input, .form-field select, .form-field textarea {
-        width: 100%; border-radius: 1.25rem; border: 1px solid #e2e8f0;
-        background: #f8fafc; padding: 0.95rem 1rem; color: #0f172a; outline: none;
-        transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
-        box-sizing: border-box;
-      }
-      .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
-        border-color: #0f766e; background: #fff; box-shadow: 0 0 0 4px rgba(15,118,110,0.12);
-      }
-
-      .faq-item { border-radius: 1.5rem; padding: 1.25rem 1.5rem; }
-      .faq-item summary { cursor: pointer; list-style: none; font-weight: 900; color: #0f172a; }
-      .faq-item summary::-webkit-details-marker { display: none; }
-      .faq-item p { margin-top: 1rem; color: #475569; line-height: 1.9; }
-
-      .tooth-illustration {
-        border-radius: 48% 48% 42% 42% / 36% 36% 58% 58%;
-        background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), transparent 18%), linear-gradient(145deg, #ffffff 0%, #dffcf6 100%);
-        box-shadow: inset 0 -22px 30px rgba(15,118,110,0.14), 0 24px 70px rgba(0,0,0,0.2);
-      }
-      .tooth-illustration::before, .tooth-illustration::after {
-        content: ""; position: absolute; bottom: -22%; height: 50%; width: 42%;
-        border-radius: 0 0 999px 999px; background: linear-gradient(180deg, #dffcf6, #ffffff);
-      }
-      .tooth-illustration::before { right: 18%; transform: rotate(8deg); }
-      .tooth-illustration::after { left: 18%; transform: rotate(-8deg); }
-
-      @media (max-width: 640px) { .service-card { min-height: auto; } }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; }
     </style>
-  </head>
-  <!-- ... rest of body with all sections and inline <script> ... -->
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-teal-600">Atelier Noor - عيادة أتلييه نور</h1>
+            <a href="#contact" class="bg-teal-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-teal-700 transition">احجز موعدك</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-b from-teal-50 to-white text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-teal-100 text-teal-800 text-sm font-semibold px-4 py-1.5 rounded-full inline-block mb-4">أفضل عيادة أسنان في مراكش</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">ابتسامة أحلامك تبدأ من هنا</h2>
+            <p class="text-lg text-slate-600 mb-8">نقدم لكم أحدث تقنيات طب الأسنان وتجميلها بمعايير عالمية وفندقية فاخرة.</p>
+            <a href="#contact" class="bg-teal-600 text-white text-lg px-8 py-3 rounded-full font-bold shadow-lg hover:bg-teal-700 transition">حجز موعد فوري</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 max-w-7xl mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-12">خدماتنا الطبية</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="text-teal-600 text-3xl mb-4">✨</div>
+                <h4 class="text-xl font-bold mb-2">تبييض الأسنان</h4>
+                <p class="text-slate-600">تقنيات حديثة لابتسامة أكثر إشراقاً وبياضاً من أول جلسة.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="text-teal-600 text-3xl mb-4">🦷</div>
+                <h4 class="text-xl font-bold mb-2">زراعة الأسنان</h4>
+                <p class="text-slate-600">تعويض الأسنان المفقودة بأحدث الغرسات العالمية الآمنة.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="text-teal-600 text-3xl mb-4">💎</div>
+                <h4 class="text-xl font-bold mb-2">تجميل الابتسامة (هوليوود سمايل)</h4>
+                <p class="text-slate-600">تصميم ابتسامة متناسقة تناسب ملامح وجهك بكل طبيعية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-white py-12 text-center">
+        <p class="text-xl font-bold mb-2">عيادة أتلييه نور - مراكش</p>
+        <p class="text-slate-400 mb-6">اتصل بنا الآن لتأكيد موعدك الطبي بكل سهولة.</p>
+        <p class="text-sm text-slate-500">© 2026 جميع الحقوق محفوظة لـ Atelier Noor.</p>
+    </footer>
+</body>
 </html>
